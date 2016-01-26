@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hexr</string>
+    <string name="app_id">757032306925</string>
+    <string name="leaderboard_id">CgkI7ZGRlYQWEAIQAA</string>
+    
+    <string name="trophy_id_0">CgkI7ZGRlYQWEAIQBg</string>
+    <string name="trophy_id_1">CgkI7ZGRlYQWEAIQBw</string>
+    <string name="trophy_id_2">CgkI7ZGRlYQWEAIQCA</string>
+    <string name="trophy_id_3">CgkI7ZGRlYQWEAIQCg</string>
+    <string name="trophy_id_4">CgkI7ZGRlYQWEAIQCw</string>
+    <string name="trophy_id_5">CgkI7ZGRlYQWEAIQDA</string>
+    <string name="trophy_id_6">CgkI7ZGRlYQWEAIQDQ</string>
+    <string name="trophy_id_7">CgkI7ZGRlYQWEAIQDg</string>
+    <string name="trophy_id_8">CgkI7ZGRlYQWEAIQDw</string>
+    <string name="trophy_id_9">CgkI7ZGRlYQWEAIQEA</string>
+    <string name="trophy_id_10">CgkI7ZGRlYQWEAIQEQ</string>
+    <string name="trophy_id_11">CgkI7ZGRlYQWEAIQEg</string>
+    <string name="trophy_id_12">CgkI7ZGRlYQWEAIQEw</string>
+    <string name="trophy_id_13">CgkI7ZGRlYQWEAIQFA</string>
+    <string name="trophy_id_14">CgkI7ZGRlYQWEAIQFQ</string>
+    <string name="trophy_id_15">CgkI7ZGRlYQWEAIQFg</string>
+    <string name="trophy_id_16">CgkI7ZGRlYQWEAIQFw</string>
+    <string name="trophy_id_17">CgkI7ZGRlYQWEAIQGA</string>
+    <string name="trophy_id_18">CgkI7ZGRlYQWEAIQGQ</string>
+    <string name="trophy_id_19">CgkI7ZGRlYQWEAIQGg</string>
+    <string name="trophy_id_20">CgkI7ZGRlYQWEAIQGw</string>
+    <string name="trophy_id_21">CgkI7ZGRlYQWEAIQHA</string>
+    <string name="trophy_id_22">CgkI7ZGRlYQWEAIQHQ</string>
+    <string name="trophy_id_23">CgkI7ZGRlYQWEAIQHg</string>
+    <string name="trophy_id_24">CgkI7ZGRlYQWEAIQHw</string>
+    <string name="trophy_id_25">CgkI7ZGRlYQWEAIQIA</string>
+    <string name="trophy_id_26">CgkI7ZGRlYQWEAIQIQ</string>
+    <string name="trophy_id_27">CgkI7ZGRlYQWEAIQIg</string>
+    <string name="trophy_id_28">CgkI7ZGRlYQWEAIQIw</string>
+    <string name="trophy_id_29">CgkI7ZGRlYQWEAIQJA</string>
+    <string name="trophy_id_30">CgkI7ZGRlYQWEAIQJQ</string>
+    <string name="trophy_id_31">CgkI7ZGRlYQWEAIQJg</string>
+    <string name="trophy_id_32">CgkI7ZGRlYQWEAIQJw</string>
+    <string name="trophy_id_33">CgkI7ZGRlYQWEAIQKA</string>
+    <string name="trophy_id_34">CgkI7ZGRlYQWEAIQKQ</string>
+    <string name="trophy_id_35">CgkI7ZGRlYQWEAIQKg</string>
+    <string name="trophy_id_36">CgkI7ZGRlYQWEAIQKw</string>
+    
+</resources>

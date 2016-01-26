@@ -1,0 +1,38 @@
+0~true~0~ 
+Line Popper~Pop 30 lines~30~ 
+Triple Decker~Pop 3 lines at once~1~ 
+Bomb Expert~Hit only one hex using a bomb~1~ 
+Don’t Cry~Lose a game~1~ 
+Style Points~Pop two lines with a bomb~1~ 
+High Five~Finish a game with at least 5,000 points~1~ 
+Big Plays~Pop two lines using a super hex~1~ 
+Impressive~Get 10 points from a shape placement~1~
+Bagel Boy~Explode 6 colored hex's using a bomb~1~ 
+Rainbow~Pop a line with one of every color (no bomb color)~1~
+It Takes Skill~Lose the game with zero points~1~
+Resourceful~Have both of your current shapes be bombs~1~
+Object Oriented~Fill 65% of the board while at zero points~1~
+Sandy Bagel~Explode 6 yellow hexes with a bomb~1~
+Janitor~Have an empty grid with at least 8000 points~1~
+Big Bang~Pop 5 lines at once~1~
+I'm Blue~Pop a 9 length blue line~1~
+Purple Assembly~Pop a 9 length green line~1~
+Sunshine~Pop a 9 length yellow line~1~
+Tetrix~Pop at least 4 lines with a red shape~1~
+Early Lead~Pop 4 lines at once when at zero points~1~
+All star~Finish a game with at least 15,000 points~1~
+Sun Beacon~Pop two completely yellow lines at once~1~
+Eighteen~Pop at least 2, nine length lines at once~1~
+Inner City~Have all but the outer ring filled with colored hexes~1~
+Penta Pop~Pop at least 5 lines at once~1~
+Trick Shot~Pop 3 lines with a bomb~1~
+Double Rainbow~Pop two length 5 lines, both with one of each color~1~
+Close to Failure~Pop 30 lines with a super hex ready for placement~30~
+Bomb Squad~Score 1000 points with bomb placements~1000~
+That’s a lot of Nine~Pop 29 nine lengthed lines~29~
+Mellow Green~Pop 3 lines with only yellow and green colors at once~1~
+Supanova~Pop 7 lines at once~1~
+Two Equals Five~Pop 5 lines with a single purple shape~1~
+High Scorer~Finish a game with at least 25,000 points~1~
+Bulls Eye~Pop 4 lines by placing a super hex in the center of the grid~1~
+Hexr~Congratulations you have beaten the game!~1~ 
