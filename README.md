@@ -1,5 +1,5 @@
 # HexR
-A project I made on my own time throughout 2015. I utilized Java and the LibGDX framework to create a fun and challenging phone puzzle game. Everything you see was created by me but I did recieve some help from friends with some of the textures. 
+A phone app project I decided to make on my own time. I utilized Java and the LibGDX framework to create a fun and challenging phone puzzle game. Everything you see was created by me but I did recieve some help from friends with some of the textures. 
 
 The game was originally intended to be cross platform but due to time and developer fees I have decided to just release for Android. If you wish to look at the game files the base content will be found in core and assets can be found in android. The game cannot be found in the android store just yet but I plan to touch up the code and finaly release it. Everything in the game works right now except for leaderboards.
 
