@@ -5,7 +5,15 @@ The game was originally intended to be cross platform (hence the use of LibGdx) 
 
 ##Screenshots and Gifs of Gameplay:
 
-These will be added soon...
+The following gifs are to provide a demonstration of the game. There are still some textures that need to be reworked and some of the layout is subject to change. However, most of what is seen will likely make it to the final version. A link to the store page will be provided once the game has been released.
+
+Gameplay 1: https://gyazo.com/0a0a2dd5d4d608fe94b302c555f5b6b0
+
+Gameplay 2: https://gyazo.com/023899fa1c655e61ece993f383522c25
+
+Start/Restart: https://gyazo.com/f1430d55158a32a4c9fa651ee899a01b
+
+Menu: https://gyazo.com/f6ed10d65af2e21722b68dec0a77aa51
 
 #Highlights of the Project
 
