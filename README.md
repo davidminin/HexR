@@ -33,6 +33,6 @@ This was actually quite a challenge to complete so I decided to include it. The 
 
 The menu system is meant to blend in great visual design and user interfacing. Every screen is made with the centralal hexagon grid in mind and the game changes the user interface based on what is needed to be shown. For example the trophy tab uses each hex in the grid as a clickable trophy and the skin tab uses the hexagons to demonstrate the graphical skin change. The menu uses in game elements, which I have created, and it breaks away from using conventional forms and lists.
 
-#GameState and Trophies
+##GameState and Trophies
 
 Since the game is endless it makes sense to be able to return to where you previously left off. HexR uses basic file reading and writing to save the state of the board along with any progress you might have with trophies (ones you unlocked and/or currently are completing). This gives the user incentive to come back and try to beat their highscores and continue unlocking content for the game.
