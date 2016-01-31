@@ -5,8 +5,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 
+// Trophy banner class used in the event that the player has unlocked a trophy. A trophy
+// banner drops down from the top of the screen to notify that the player has unlocked a 
+// specific trophy.
 public class TrophyBanner extends Button{
-
 	// Counter used to determine how long the banner should stay for
 	int timer;
 	

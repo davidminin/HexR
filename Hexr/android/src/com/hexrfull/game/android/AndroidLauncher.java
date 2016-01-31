@@ -13,6 +13,8 @@ import com.google.example.games.basegameutils.GameHelper.GameHelperListener;
 import com.hexrfull.game.GoogleServices;
 import com.hexrfull.game.HexrGame;
 
+// Android Launcher Class that is called before the start of the application. Used to
+// sign the user into Google Services.
 public class AndroidLauncher extends AndroidApplication implements GoogleServices{
 	private GameHelper _gameHelper;
 	
