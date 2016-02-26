@@ -5,7 +5,15 @@ The game was originally intended to be cross platform (hence the use of LibGdx) 
 
 ##Screenshots and Gifs of Gameplay:
 
-These will be added soon...
+The following gifs are to provide a demonstration of the game. There are still some textures that need to be reworked and some of the layout is subject to change. However, most of what is seen will likely make it to the final version. A link to the store page will be provided once the game has been released.
+
+Gameplay 1: https://gyazo.com/0a0a2dd5d4d608fe94b302c555f5b6b0
+
+Gameplay 2: https://gyazo.com/023899fa1c655e61ece993f383522c25
+
+Start/Restart: https://gyazo.com/f1430d55158a32a4c9fa651ee899a01b
+
+Menu: https://gyazo.com/f6ed10d65af2e21722b68dec0a77aa51
 
 #Highlights of the Project
 
@@ -25,6 +33,6 @@ This was actually quite a challenge to complete so I decided to include it. The 
 
 The menu system is meant to blend in great visual design and user interfacing. Every screen is made with the centralal hexagon grid in mind and the game changes the user interface based on what is needed to be shown. For example the trophy tab uses each hex in the grid as a clickable trophy and the skin tab uses the hexagons to demonstrate the graphical skin change. The menu uses in game elements, which I have created, and it breaks away from using conventional forms and lists.
 
-#GameState and Trophies
+##GameState and Trophies
 
 Since the game is endless it makes sense to be able to return to where you previously left off. HexR uses basic file reading and writing to save the state of the board along with any progress you might have with trophies (ones you unlocked and/or currently are completing). This gives the user incentive to come back and try to beat their highscores and continue unlocking content for the game.
