@@ -774,7 +774,7 @@ public class MainGame implements ApplicationListener {
 		// Determines the horizontal and vertical offsets needed to center the
 		// grid
 		float centralizeX = (int) ((screenWidth - 9 * (space + 4 + IMG_SIZE * 0.75)) / 2) - 8;
-		float centralizeY = (int) ((screenHeight - 10 * (space + IMG_SIZE)) / 2);
+		float centralizeY = (int) ((screenHeight - 9 * (space + IMG_SIZE)) / 2);
 
 		if (ratio == Gdx.graphics.getDensity() / 3f)
 			centralizeX -= 4;
@@ -963,12 +963,16 @@ public class MainGame implements ApplicationListener {
 		// Achievement unlocks
 		if (rank == 1 && numHexes == 2) {
 			unlockTrophyIndex = 2;
+			unlockAmount = 1;
 		} else if (rank == 2 && numHexes == 1) {
 			unlockTrophyIndex = 7;
+			unlockAmount = 1;
 		} else if (rank == 3 && numHexes == 7) {
 			unlockTrophyIndex = 8;
+			unlockAmount = 1;
 		} else if (rank == 4 && numHexes == 7 && allYellow) {
 			unlockTrophyIndex = 13;
+			unlockAmount = 1;
 		} else if (rank == 8) {
 			unlockTrophyIndex = 29;
 			unlockAmount = 10 + (numHexes - 1) * 13;
@@ -1120,7 +1124,7 @@ public class MainGame implements ApplicationListener {
 		}
 
 		// Achievement unlocks
-		if (rank == 1) {
+		if (rank == 1 && lines.size() >= 1) {
 			unlockTrophyIndex = 0;
 			unlockAmount = lines.size();
 

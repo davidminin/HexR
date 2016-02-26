@@ -120,10 +120,10 @@ public class ScreenManager {
 		if(mainGame.gameOver && rank == 1){
 			mainGame.unlockTrophyIndex = 3;
 		}
-		else if(mainGame.gameOver && rank == 1 && mainGame.points >= 5000){
+		else if(mainGame.gameOver && rank == 2 && mainGame.points >= 5000){
 			mainGame.unlockTrophyIndex = 5;
 		}
-		else if(mainGame.gameOver && rank == 2 && mainGame.points == 0){
+		else if(mainGame.gameOver && rank == 3 && mainGame.points == 0){
 			mainGame.unlockTrophyIndex = 10;
 		}
 		else if(mainGame.gameOver && rank == 5 && mainGame.points >= 15000){
@@ -701,9 +701,7 @@ public class ScreenManager {
     	
     	// determines if the rank is complete
     	for(int i = 0; i < 4; i++){
-    		int j = (rank - 1) * 4 + i;
-    		
-    		if(rankComplete && !trophies[j].isCompleted())
+    		if(rankComplete && !(trophies[(rank - 1) * 4 + i].isCompleted()))
     			rankComplete = false;
     	}
     	
@@ -721,7 +719,7 @@ public class ScreenManager {
     		b.addListener(bannerListenerPre);
     		b.addListener(toggleMenu);
     		b.addListener(bannerListenerPost);
-    		b.runBanner(trophies[index]);
+    		b.runBanner(trophies[index], index);
 			b.toFront();
     	}
     }
@@ -777,47 +775,46 @@ public class ScreenManager {
     
     // Sets the trophy locations based on rank and index
     public void SetTrophyLocations(){
-    	float offset = mainGame.IMG_SIZE / 2 + mainGame.IMG_SIZE / 8.2f;
     	UpdateSkin();
     	DelockTrophies();
     	
-    	trophies[0].setPosition(mainGame.GetGridHex(4, 14).getX(), mainGame.GetGridHex(4,14).getY() + offset);
-    	trophies[1].setPosition(mainGame.GetGridHex(3, 13).getX(), mainGame.GetGridHex(3,13).getY() + offset);
-    	trophies[2].setPosition(mainGame.GetGridHex(4, 12).getX(), mainGame.GetGridHex(4,12).getY() + offset);
-    	trophies[3].setPosition(mainGame.GetGridHex(5, 13).getX(), mainGame.GetGridHex(5,13).getY() + offset);
-    	trophies[4].setPosition(mainGame.GetGridHex(4, 2).getX(), mainGame.GetGridHex(4,2).getY() + offset);
-    	trophies[5].setPosition(mainGame.GetGridHex(4, 4).getX(), mainGame.GetGridHex(4,4).getY() + offset);
-    	trophies[6].setPosition(mainGame.GetGridHex(3, 3).getX(), mainGame.GetGridHex(3,3).getY() + offset);
-    	trophies[7].setPosition(mainGame.GetGridHex(5, 3).getX(), mainGame.GetGridHex(5,3).getY() + offset);
-    	trophies[8].setPosition(mainGame.GetGridHex(2, 4).getX(), mainGame.GetGridHex(2,4).getY() + offset);
-    	trophies[9].setPosition(mainGame.GetGridHex(1, 5).getX(), mainGame.GetGridHex(1,5).getY() + offset);
-    	trophies[10].setPosition(mainGame.GetGridHex(1,7).getX(), mainGame.GetGridHex(1,7).getY() + offset);
-    	trophies[11].setPosition(mainGame.GetGridHex(2,6).getX(), mainGame.GetGridHex(2,6).getY() + offset);
-    	trophies[12].setPosition(mainGame.GetGridHex(6,12).getX(), mainGame.GetGridHex(6,12).getY() + offset);
-    	trophies[13].setPosition(mainGame.GetGridHex(6,10).getX(), mainGame.GetGridHex(6,10).getY() + offset);
-    	trophies[14].setPosition(mainGame.GetGridHex(7,11).getX(), mainGame.GetGridHex(7,11).getY() + offset);
-    	trophies[15].setPosition(mainGame.GetGridHex(7,9).getX(), mainGame.GetGridHex(7,9).getY() + offset);
-    	trophies[16].setPosition(mainGame.GetGridHex(2,12).getX(), mainGame.GetGridHex(2,12).getY() + offset);
-    	trophies[17].setPosition(mainGame.GetGridHex(1,11).getX(), mainGame.GetGridHex(1,11).getY() + offset);
-    	trophies[18].setPosition(mainGame.GetGridHex(1,9).getX(), mainGame.GetGridHex(1,9).getY() + offset);
-    	trophies[19].setPosition(mainGame.GetGridHex(2,10).getX(), mainGame.GetGridHex(2,10).getY() + offset);
-    	trophies[20].setPosition(mainGame.GetGridHex(6,4).getX(), mainGame.GetGridHex(6,4).getY() + offset);
-    	trophies[21].setPosition(mainGame.GetGridHex(6,6).getX(), mainGame.GetGridHex(6,6).getY() + offset);
-    	trophies[22].setPosition(mainGame.GetGridHex(7,5).getX(), mainGame.GetGridHex(7,5).getY() + offset);
-    	trophies[23].setPosition(mainGame.GetGridHex(7,7).getX(), mainGame.GetGridHex(7,7).getY() + offset);
-    	trophies[24].setPosition(mainGame.GetGridHex(2,8).getX(), mainGame.GetGridHex(2,8).getY() + offset);
-    	trophies[25].setPosition(mainGame.GetGridHex(3,5).getX(), mainGame.GetGridHex(3,5).getY() + offset);
-    	trophies[26].setPosition(mainGame.GetGridHex(3,7).getX(), mainGame.GetGridHex(3,7).getY() + offset);
-    	trophies[27].setPosition(mainGame.GetGridHex(3,9).getX(), mainGame.GetGridHex(3,9).getY() + offset);
-    	trophies[28].setPosition(mainGame.GetGridHex(3,11).getX(), mainGame.GetGridHex(3,11).getY() + offset);
-    	trophies[29].setPosition(mainGame.GetGridHex(4,10).getX(), mainGame.GetGridHex(4,10).getY() + offset);
-    	trophies[30].setPosition(mainGame.GetGridHex(5,11).getX(), mainGame.GetGridHex(5,11).getY() + offset);
-    	trophies[31].setPosition(mainGame.GetGridHex(5,9).getX(), mainGame.GetGridHex(5,9).getY() + offset);
-    	trophies[32].setPosition(mainGame.GetGridHex(6,8).getX(), mainGame.GetGridHex(6,8).getY() + offset);
-    	trophies[33].setPosition(mainGame.GetGridHex(5,7).getX(), mainGame.GetGridHex(5,7).getY() + offset);
-    	trophies[34].setPosition(mainGame.GetGridHex(4,6).getX(), mainGame.GetGridHex(4,6).getY() + offset);
-    	trophies[35].setPosition(mainGame.GetGridHex(5, 5).getX(), mainGame.GetGridHex(5,5).getY() + offset);
-    	trophies[36].setPosition(mainGame.GetGridHex(4,8).getX(), mainGame.GetGridHex(4,8).getY() + offset);
+    	trophies[0].setPosition(mainGame.GetGridHex(4, 14).getX(), mainGame.GetGridHex(4,14).getY());
+    	trophies[1].setPosition(mainGame.GetGridHex(3, 13).getX(), mainGame.GetGridHex(3,13).getY());
+    	trophies[2].setPosition(mainGame.GetGridHex(4, 12).getX(), mainGame.GetGridHex(4,12).getY());
+    	trophies[3].setPosition(mainGame.GetGridHex(5, 13).getX(), mainGame.GetGridHex(5,13).getY());
+    	trophies[4].setPosition(mainGame.GetGridHex(4, 2).getX(), mainGame.GetGridHex(4,2).getY());
+    	trophies[5].setPosition(mainGame.GetGridHex(4, 4).getX(), mainGame.GetGridHex(4,4).getY());
+    	trophies[6].setPosition(mainGame.GetGridHex(3, 3).getX(), mainGame.GetGridHex(3,3).getY());
+    	trophies[7].setPosition(mainGame.GetGridHex(5, 3).getX(), mainGame.GetGridHex(5,3).getY());
+    	trophies[8].setPosition(mainGame.GetGridHex(2, 4).getX(), mainGame.GetGridHex(2,4).getY());
+    	trophies[9].setPosition(mainGame.GetGridHex(1, 5).getX(), mainGame.GetGridHex(1,5).getY());
+    	trophies[10].setPosition(mainGame.GetGridHex(1,7).getX(), mainGame.GetGridHex(1,7).getY());
+    	trophies[11].setPosition(mainGame.GetGridHex(2,6).getX(), mainGame.GetGridHex(2,6).getY());
+    	trophies[12].setPosition(mainGame.GetGridHex(6,12).getX(), mainGame.GetGridHex(6,12).getY());
+    	trophies[13].setPosition(mainGame.GetGridHex(6,10).getX(), mainGame.GetGridHex(6,10).getY());
+    	trophies[14].setPosition(mainGame.GetGridHex(7,11).getX(), mainGame.GetGridHex(7,11).getY());
+    	trophies[15].setPosition(mainGame.GetGridHex(7,9).getX(), mainGame.GetGridHex(7,9).getY());
+    	trophies[16].setPosition(mainGame.GetGridHex(2,12).getX(), mainGame.GetGridHex(2,12).getY());
+    	trophies[17].setPosition(mainGame.GetGridHex(1,11).getX(), mainGame.GetGridHex(1,11).getY());
+    	trophies[18].setPosition(mainGame.GetGridHex(1,9).getX(), mainGame.GetGridHex(1,9).getY());
+    	trophies[19].setPosition(mainGame.GetGridHex(2,10).getX(), mainGame.GetGridHex(2,10).getY());
+    	trophies[20].setPosition(mainGame.GetGridHex(6,4).getX(), mainGame.GetGridHex(6,4).getY());
+    	trophies[21].setPosition(mainGame.GetGridHex(6,6).getX(), mainGame.GetGridHex(6,6).getY());
+    	trophies[22].setPosition(mainGame.GetGridHex(7,5).getX(), mainGame.GetGridHex(7,5).getY());
+    	trophies[23].setPosition(mainGame.GetGridHex(7,7).getX(), mainGame.GetGridHex(7,7).getY());
+    	trophies[24].setPosition(mainGame.GetGridHex(2,8).getX(), mainGame.GetGridHex(2,8).getY());
+    	trophies[25].setPosition(mainGame.GetGridHex(3,5).getX(), mainGame.GetGridHex(3,5).getY());
+    	trophies[26].setPosition(mainGame.GetGridHex(3,7).getX(), mainGame.GetGridHex(3,7).getY());
+    	trophies[27].setPosition(mainGame.GetGridHex(3,9).getX(), mainGame.GetGridHex(3,9).getY());
+    	trophies[28].setPosition(mainGame.GetGridHex(3,11).getX(), mainGame.GetGridHex(3,11).getY());
+    	trophies[29].setPosition(mainGame.GetGridHex(4,10).getX(), mainGame.GetGridHex(4,10).getY());
+    	trophies[30].setPosition(mainGame.GetGridHex(5,11).getX(), mainGame.GetGridHex(5,11).getY());
+    	trophies[31].setPosition(mainGame.GetGridHex(5,9).getX(), mainGame.GetGridHex(5,9).getY());
+    	trophies[32].setPosition(mainGame.GetGridHex(6,8).getX(), mainGame.GetGridHex(6,8).getY());
+    	trophies[33].setPosition(mainGame.GetGridHex(5,7).getX(), mainGame.GetGridHex(5,7).getY());
+    	trophies[34].setPosition(mainGame.GetGridHex(4,6).getX(), mainGame.GetGridHex(4,6).getY());
+    	trophies[35].setPosition(mainGame.GetGridHex(5, 5).getX(), mainGame.GetGridHex(5,5).getY());
+    	trophies[36].setPosition(mainGame.GetGridHex(4,8).getX(), mainGame.GetGridHex(4,8).getY());
     }
     
     // Sets the font and batch color based on the screens skin

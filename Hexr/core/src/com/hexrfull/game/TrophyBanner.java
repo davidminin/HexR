@@ -21,15 +21,9 @@ public class TrophyBanner extends Button{
 	// Holds the two colors used in the banner gradient
 	Color color = new Color(0, 0, 0, 0.85f);
 	
-	public TrophyBanner() {
-	}
-	
+	// Constructor
 	public TrophyBanner(int x, int y, Rectangle srcRect, Texture bSheet) {
 		super(x, y, srcRect, bSheet);
-	}
-	
-	@Override
-    public void draw(Batch batch, float alpha){
 	}
 	
 	@Override
@@ -51,8 +45,9 @@ public class TrophyBanner extends Button{
 	}
 	
 	// Toggles the banner to either return or to move out
-	public void runBanner(Trophy t){
-		name = "Trophy Unlocked";
+	public void runBanner(Trophy t, int index){
+		name = "Trophy '" + t.name + "' Unlocked";
+		trophyIndex = index;
 		timer = 200;
 		endY += (int)getHeight();
 		region = t.region;

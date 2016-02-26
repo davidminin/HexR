@@ -108,7 +108,7 @@ public class HexrGame extends ApplicationAdapter {
 		if(screens.mainGame.paused && screens.stage.getActors().size > 8){
 			if(screens.inTrophyTab == null){ // options menu
 				layout.setText(bigFont, "" + screens.highscore);
-				bigFont.draw(batch, "" + screens.highscore, (int)(Gdx.graphics.getWidth() - layout.width) / 2, (int)(screens.trophies[0].getY() + bigFont.getCapHeight() * 1.5f));
+				bigFont.draw(batch, "" + screens.highscore, (int)(Gdx.graphics.getWidth() - layout.width) / 2, (int)(screens.trophies[0].getY() + bigFont.getCapHeight() * 1.75f));
 			}
 			
 			else if(screens.inTrophyTab){ //trophy menu
@@ -116,7 +116,7 @@ public class HexrGame extends ApplicationAdapter {
 				
 				// Adjusts completed variable
 				if(screens.rank != 10){
-					completed = 0;
+					completed = (screens.rank - 1) * 4;
 					
 					// Loops through the trophies in the rank
 					for(int i = 0; i < 4; i++){
@@ -132,7 +132,11 @@ public class HexrGame extends ApplicationAdapter {
 				bigFont.draw(batch, completed + " / 37", (int)(Gdx.graphics.getWidth() - layout.width), 
 						(int)(Gdx.graphics.getHeight() - (screens.mainGame.IMG_SIZE * 3 - bigFont.getCapHeight() / 2)));
 			
-
+				layout.setText(bigFont, "Rank: " + screens.rank);
+				bigFont.draw(batch, "Rank: " + screens.mainGame.rank, 5, 
+						(int)(Gdx.graphics.getHeight() - (screens.mainGame.IMG_SIZE * 3 - bigFont.getCapHeight() / 2)));
+			
+				
 				Trophy t = Trophy.class.cast(screens.stage.getActors().peek());
 				
 				// A trophy is being viewed at, draw its information
@@ -272,7 +276,6 @@ public class HexrGame extends ApplicationAdapter {
 		
 		int size = screens.mainGame.IMG_SIZE;
 		int rank = 1;
-		boolean uncompletedTrophy = false;
 		
 		// Sets highscore and sound options up
 		String[] line = text[0].split("~");
@@ -292,14 +295,14 @@ public class HexrGame extends ApplicationAdapter {
 			name = name.trim();
 			desc = desc.trim();
 			
-			if(complet != 100)
-				uncompletedTrophy = true;
-			
 			screens.trophies[i - 1] = new Trophy(name, desc, complet, new Rectangle(1 + (size + 1) * ((i - 1) % 4), size * ((i + 3) / 4), size, size), screens.trophySheet);
-			
-			// Determines the rank
-			if(!uncompletedTrophy && i % 4 == 0){
-				rank = i / 4;
+		}
+		
+		// Determines rank
+		for(int j = 3; j < text.length - 1; j += 4){
+			if(screens.trophies[j].isCompleted() && screens.trophies[j - 1].isCompleted()
+					&& screens.trophies[j - 2].isCompleted() && screens.trophies[j - 3].isCompleted()){
+				rank += 1;
 			}
 		}
 		
