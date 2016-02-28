@@ -112,6 +112,16 @@ public class MainGame implements ApplicationListener {
 			shape = s;
 			stage.addActor(shape);
 			toFront();
+			
+			if(boxTwo != null)
+				System.out.println("Rank: " + rank +"\nBox One Id: " + boxOne.shape.units[0].id.toString() + "\nBox Two Id: " + boxTwo.shape.units[0].id.toString());
+			
+			// Trophy Unlock
+			if (boxTwo != null && rank == 3 && boxOne.shape.units[0].id == ID.BOMB
+					&& boxTwo.shape.units[0].id == ID.BOMB) {
+				unlockTrophyIndex = 11;
+				unlockAmount = 1;
+			}
 		}
 
 		// Uses the type of a shape to reinitialize that kind of shape into the
@@ -281,10 +291,6 @@ public class MainGame implements ApplicationListener {
 		private void CreateRandomShape(int imgBounds) {
 			Random rand = new Random();
 			int val = rand.nextInt(100) + 1;
-
-			System.out.println("IMG_SIZE: " + IMG_SIZE);
-			System.out.println("IMG_SIZE: " + IMG_SIZE);
-			System.out.println("IMG_SIZE: " + IMG_SIZE);
 			
 			// Chooses the random shape
 			if (val <= spawnRates[0]) {
@@ -606,13 +612,8 @@ public class MainGame implements ApplicationListener {
 					for (int j = 0; j < units.length; j++) {
 						units[j].remove();
 					}
+					
 					this.remove();
-
-					// Trophy Unlock
-					if (rank == 3 && boxOne.shape.units[0].id == ID.BOMB
-							&& boxTwo.shape.units[0].id == ID.BOMB) {
-						unlockTrophyIndex = 11;
-					}
 				}
 			}
 			// Shape is activated and is following cursor
@@ -1143,7 +1144,7 @@ public class MainGame implements ApplicationListener {
 		}
 		// Rank 3 unlocks
 		else if (rank == 3 && lines.size() == 1 && lines.get(0).size() == 5) {
-			int[] checks = countLineColors((Hex[]) lines.get(0).toArray());
+			int[] checks = countLineColors(lines.get(0).toArray());
 
 			// Rainbow achievement unlocked
 			if (checks[0] == 1 && checks[1] == 1 && checks[2] == 1
@@ -1162,7 +1163,7 @@ public class MainGame implements ApplicationListener {
 			} else {
 				for (int i = 0; i < lines.size(); i++) {
 					if (lines.get(i).size() == 9) {
-						int[] checks = countLineColors((Hex[]) lines.get(i)
+						int[] checks = countLineColors(lines.get(i)
 								.toArray());
 
 						if (checks[0] == 9)
@@ -1185,10 +1186,16 @@ public class MainGame implements ApplicationListener {
 
 				// Determines if both lines are completely yellow
 				for (int i = 0; i < 2; i++) {
-					Hex[] line = (Hex[]) lines.get(i).toArray();
+					Object[] line = lines.get(i).toArray();
+					
+					// Loops through the line
 					for (int j = 0; j < line.length; j++) {
-						if (line[j].id != ID.YELLOW) {
+						Hex h = (Hex)line[j];
+						
+						// If an id is found to not be yellow, break out
+						if (h.id != ID.YELLOW) {
 							allYellow = false;
+							j = line.length;
 						}
 					}
 				}
@@ -1218,11 +1225,11 @@ public class MainGame implements ApplicationListener {
 				unlockTrophyIndex = 26;
 			} else if (lines.size() == 2 && lines.get(0).size() == 5
 					&& lines.get(1).size() == 5) {
-				int[] checks = countLineColors((Hex[]) lines.get(0).toArray());
+				int[] checks = countLineColors(lines.get(0).toArray());
 
 				if (checks[0] == 1 && checks[1] == 1 && checks[2] == 1
 						&& checks[3] == 1 && checks[4] == 1) {
-					checks = countLineColors((Hex[]) lines.get(1).toArray());
+					checks = countLineColors(lines.get(1).toArray());
 
 					if (checks[0] == 1 && checks[1] == 1 && checks[2] == 1
 							&& checks[3] == 1 && checks[4] == 1) {
@@ -1241,9 +1248,12 @@ public class MainGame implements ApplicationListener {
 				boolean colorsOk = true;
 
 				for (int i = 0; i < 3; i++) {
-					Hex[] line = (Hex[]) lines.get(i).toArray();
+					Object[] line = lines.get(i).toArray();
+					
 					for (int j = 0; j < line.length; j++) {
-						if (line[j].id != ID.GREEN && line[j].id != ID.YELLOW) {
+						Hex h = (Hex)line[j];
+						
+						if (h.id != ID.GREEN && h.id != ID.YELLOW) {
 							colorsOk = false;
 						}
 					}
@@ -1279,11 +1289,13 @@ public class MainGame implements ApplicationListener {
 	}
 
 	// Determines how often every color appears in the line
-	private int[] countLineColors(Hex[] line) {
+	private int[] countLineColors(Object[] line) {
 		int[] checks = { 0, 0, 0, 0, 0 };
 
 		for (int i = 0; i < line.length; i++) {
-			switch (line[i].id) {
+			Hex h = (Hex)line[i];
+			
+			switch (h.id) {
 			case BLUE:
 				checks[0] += 1;
 				break;

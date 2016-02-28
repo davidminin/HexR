@@ -708,7 +708,7 @@ public class ScreenManager {
     	// completes the rank if needed 
     	if(rankComplete){
     		rank++;
-    		mainGame.rank++;
+    		mainGame.rank = rank;
     		DelockTrophies();
     	}
     	
@@ -762,12 +762,10 @@ public class ScreenManager {
     		trophies[36].BreakLock();
     	}
     	else{
+    		// If not on last rank then delock 4 trophies.
 			for(int i = 0; i < 4; i++){
-				int index = (rank - 1) * 4 + i;
-				System.out.println("RegionX: " + trophies[index].unfinished.getRegionX());
-				
-				if(trophies[index].unfinished.getRegionX() == 0)
-					trophies[index].BreakLock();
+				if(trophies[(rank - 1) * 4 + i].unfinished.getRegionX() == 0)
+					trophies[(rank - 1) * 4 + i].BreakLock();
 			}
     	}
     }

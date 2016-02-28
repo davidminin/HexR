@@ -44,9 +44,14 @@ public class TrophyBanner extends Button{
 		}
 	}
 	
+	// Empty draw class function so that nothing is drawn when the trophy banner is activated
+	@Override
+	public void draw(Batch batch, float alpha){
+	}
+	
 	// Toggles the banner to either return or to move out
 	public void runBanner(Trophy t, int index){
-		name = "Trophy '" + t.name + "' Unlocked";
+		name = "Trophy Unlocked: " + t.name;
 		trophyIndex = index;
 		timer = 200;
 		endY += (int)getHeight();
