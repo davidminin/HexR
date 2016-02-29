@@ -144,13 +144,24 @@ public class ScreenManager {
 			if(!trophies[index].isCompleted()){
 				trophies[index].completion -= mainGame.unlockAmount;
 				
+				try{
+					// Try to increment progression if the trophy takes multiple steps
+					if(isIncrementIndex(index))
+						googleServices.incrementTrophy(mainGame.unlockTrophyIndex, mainGame.unlockAmount);
+				}
+				catch(Exception e){
+					System.out.println("Error incrementing trophy progress " + mainGame.unlockTrophyIndex + ": " + e.getMessage());
+				}
+				
 				if(trophies[index].isCompleted()){
 					UnlockTrophy(mainGame.unlockTrophyIndex);
 					
 					try{
-						googleServices.unlockTrophy(mainGame.unlockTrophyIndex);
+						if(!isIncrementIndex(index))
+							googleServices.unlockTrophy(mainGame.unlockTrophyIndex);
 					}
 					catch(Exception e){
+						System.out.println("Error unlocking trophy " + mainGame.unlockTrophyIndex + ": " + e.getMessage());
 					}
 				}
 			}
@@ -698,6 +709,7 @@ public class ScreenManager {
     private void UnlockTrophy(int index){
     	boolean rankComplete = true;
     	writeTrophy = true;
+    	System.out.println("Unlocking trophy " + index + " at rank " + rank);
     	
     	// determines if the rank is complete
     	for(int i = 0; i < 4; i++){
@@ -708,9 +720,12 @@ public class ScreenManager {
     	// completes the rank if needed 
     	if(rankComplete){
     		rank++;
-    		mainGame.rank = rank;
+    		mainGame.rank++;
     		DelockTrophies();
     	}
+    	
+    	System.out.println("Manager rank: " + rank);
+    	System.out.println("MainGame rank: " + rank);
     	
     	// Trophy banner code
     	TrophyBanner b = mainGame.banner;
@@ -830,5 +845,10 @@ public class ScreenManager {
 			default: // Default skin
 				return Color.WHITE;
 		}
+	}
+	
+	// Returns a value indicating if the trophy index given a trophy that takes multiple steps
+	boolean isIncrementIndex(int index){
+		return index == 0 || index == 28 || index == 29 || index == 30;
 	}
 }

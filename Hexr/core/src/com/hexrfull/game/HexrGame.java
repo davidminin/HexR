@@ -100,9 +100,18 @@ public class HexrGame extends ApplicationAdapter {
 		
 		// Done like this so that shapes draw over the options bar
 		batch.end();
-		if(screens.mainGame.gameOver || !screens.mainGame.paused)
+		if(screens.mainGame.gameOver || !screens.mainGame.paused){
 			screens.mainGame.render();
+		}
 		batch.begin();
+		
+		// Draw each coordinate on the hexs, use only for debugging
+		if(screens.mainGame.gameOver || !screens.mainGame.paused){
+			Hex[] hexs = screens.mainGame.GetGridArray();
+			for(int j = 0; j < hexs.length; j++){
+				//smallFont.draw(batch, hexs[j].cor.getX() + "," + hexs[j].cor.getY(), hexs[j].getX() + 15, Gdx.graphics.getHeight() - hexs[j].getY() + 50);
+			}
+		}
 		
 		// Game is in pause menu
 		if(screens.mainGame.paused && screens.stage.getActors().size > 8){

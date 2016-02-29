@@ -67,4 +67,10 @@ public class IOSLauncher extends IOSApplication.Delegate implements GoogleServic
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void incrementTrophy(int index, int amount) {
+		// TODO Auto-generated method stub
+		
+	}
 }

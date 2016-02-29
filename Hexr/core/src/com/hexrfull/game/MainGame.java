@@ -1138,40 +1138,55 @@ public class MainGame implements ApplicationListener {
 		else if (rank == 2) {
 			if (s.units[0].id == ID.BOMB && lines.size() >= 2) {
 				unlockTrophyIndex = 4;
+				unlockAmount = 1;
 			} else if (s.units.length == 7 && lines.size() >= 2) {
 				unlockTrophyIndex = 6;
+				unlockAmount = 1;
 			}
 		}
 		// Rank 3 unlocks
-		else if (rank == 3 && lines.size() == 1 && lines.get(0).size() == 5) {
-			int[] checks = countLineColors(lines.get(0).toArray());
-
-			// Rainbow achievement unlocked
-			if (checks[0] == 1 && checks[1] == 1 && checks[2] == 1
-					&& checks[3] == 1 && checks[4] == 1) {
-				unlockTrophyIndex = 9;
+		else if (rank == 3) {
+			for(int k = 0; k < lines.size(); k++){
+				if(lines.get(k).size() == 5){
+					int[] checks = countLineColors(lines.get(k).toArray());
+		
+					// Rainbow achievement unlocked
+					if (checks[0] == 1 && checks[1] == 1 && checks[2] == 1
+							&& checks[3] == 1 && checks[4] == 1) {
+						unlockTrophyIndex = 9;
+						unlockAmount = 1;
+					}
+				}
 			}
 		}
 		// Rank 4 unlocks
 		else if (rank == 4 && lines.size() >= 5) {
 			unlockTrophyIndex = 15;
+			unlockAmount = 1;
 		}
 		// Rank 5 unlocks
 		else if (rank == 5) {
 			if (lines.size() >= 4 && s.units[0].id == ID.RED) {
 				unlockTrophyIndex = 19;
+				unlockAmount = 1;
 			} else {
 				for (int i = 0; i < lines.size(); i++) {
 					if (lines.get(i).size() == 9) {
 						int[] checks = countLineColors(lines.get(i)
 								.toArray());
 
-						if (checks[0] == 9)
+						if (checks[0] == 9){
 							unlockTrophyIndex = 16;
-						else if (checks[2] == 9)
+							unlockAmount = 1;
+						}
+						else if (checks[2] == 9){
 							unlockTrophyIndex = 17;
-						else if (checks[3] == 9)
+							unlockAmount = 1;
+						}
+						else if (checks[3] == 9){
 							unlockTrophyIndex = 18;
+							unlockAmount = 1;
+						}
 					}
 				}
 			}
@@ -1181,7 +1196,9 @@ public class MainGame implements ApplicationListener {
 			if (lines.size() >= 4
 					&& points - (int) (numHexes * 13 * lines.size()) == 0) {
 				unlockTrophyIndex = 20;
-			} else if (lines.size() == 2) {
+				unlockAmount = 1;
+			} 
+			else if (lines.size() == 2) {
 				boolean allYellow = true;
 
 				// Determines if both lines are completely yellow
@@ -1200,8 +1217,10 @@ public class MainGame implements ApplicationListener {
 					}
 				}
 
+				// Line popped is all yellow
 				if (allYellow) {
 					unlockTrophyIndex = 22;
+					unlockAmount = 1;
 				}
 			} else if (lines.size() >= 2) {
 				int count = 0;
@@ -1214,6 +1233,7 @@ public class MainGame implements ApplicationListener {
 
 				if (count >= 2) {
 					unlockTrophyIndex = 23;
+					unlockAmount = 1;
 				}
 			}
 		}
@@ -1221,20 +1241,32 @@ public class MainGame implements ApplicationListener {
 		else if (rank == 7) {
 			if (lines.size() >= 5) {
 				unlockTrophyIndex = 25;
-			} else if (s.units[0].id == ID.BOMB && lines.size() == 3) {
+				unlockAmount = 1;
+			} 
+			else if (s.units[0].id == ID.BOMB && lines.size() == 3) {
 				unlockTrophyIndex = 26;
-			} else if (lines.size() == 2 && lines.get(0).size() == 5
-					&& lines.get(1).size() == 5) {
-				int[] checks = countLineColors(lines.get(0).toArray());
-
-				if (checks[0] == 1 && checks[1] == 1 && checks[2] == 1
-						&& checks[3] == 1 && checks[4] == 1) {
-					checks = countLineColors(lines.get(1).toArray());
-
-					if (checks[0] == 1 && checks[1] == 1 && checks[2] == 1
-							&& checks[3] == 1 && checks[4] == 1) {
-						unlockTrophyIndex = 27;
+				unlockAmount = 1;
+			}
+			// Double rainbow check
+			else {
+				int count = 0;
+				
+				// Loop through the lines an add up all the rainbow lines
+				for(int k = 0; k < lines.size(); k++){
+					if(lines.get(k).size() == 5){
+						int[] checks = countLineColors(lines.get(k).toArray());
+		
+						if (checks[0] == 1 && checks[1] == 1 && checks[2] == 1
+								&& checks[3] == 1 && checks[4] == 1) {
+							count++;
+						}
 					}
+				}
+				
+				// At least 2 rainbows
+				if (count >= 2) {
+					unlockTrophyIndex = 27;
+					unlockAmount = 1;
 				}
 			}
 		}
@@ -1244,23 +1276,28 @@ public class MainGame implements ApplicationListener {
 					|| (boxTwo.shape.units.length == 7 && s != boxTwo.shape)) {
 				unlockTrophyIndex = 28;
 				unlockAmount = lines.size();
-			} else if (lines.size() == 3) {
+			} 
+			else if (lines.size() == 3) {
 				boolean colorsOk = true;
 
+				// Loops through the lines
 				for (int i = 0; i < 3; i++) {
 					Object[] line = lines.get(i).toArray();
 					
+					// Check to see if all colors are either green or yellow
 					for (int j = 0; j < line.length; j++) {
 						Hex h = (Hex)line[j];
 						
-						if (h.id != ID.GREEN && h.id != ID.YELLOW) {
+						if (h.id == ID.RED || h.id == ID.BLUE || h.id == ID.PURPLE) {
 							colorsOk = false;
 						}
 					}
 				}
 
+				// If all colors are green or yellow then unlock the trophy
 				if (colorsOk) {
 					unlockTrophyIndex = 31;
+					unlockAmount = 1;
 				}
 			} else if (lines.size() >= 1) {
 				int amount = 0;
@@ -1279,11 +1316,16 @@ public class MainGame implements ApplicationListener {
 		else if (rank == 9) {
 			if (lines.size() >= 7) {
 				unlockTrophyIndex = 32;
-			} else if (lines.size() == 5 && s.units[0].id == ID.PURPLE) {
+				unlockAmount = 1;
+			} 
+			else if (lines.size() == 5 && s.units[0].id == ID.PURPLE) {
 				unlockTrophyIndex = 33;
-			} else if (lines.size() >= 4 && s.units.length == 7
+				unlockAmount = 1;
+			} 
+			else if (lines.size() >= 4 && s.units.length == 7
 					&& s.units[0].cor.getX() == 0 && s.units[0].cor.getY() == 0) {
 				unlockTrophyIndex = 35;
+				unlockAmount = 1;
 			}
 		}
 	}
@@ -1296,25 +1338,25 @@ public class MainGame implements ApplicationListener {
 			Hex h = (Hex)line[i];
 			
 			switch (h.id) {
-			case BLUE:
-				checks[0] += 1;
-				break;
-
-			case GREEN:
-				checks[1] += 1;
-				break;
-
-			case PURPLE:
-				checks[2] += 1;
-				break;
-
-			case YELLOW:
-				checks[3] += 1;
-				break;
-
-			case RED:
-				checks[4] += 1;
-				break;
+				case BLUE:
+					checks[0] += 1;
+					break;
+	
+				case GREEN:
+					checks[1] += 1;
+					break;
+	
+				case PURPLE:
+					checks[2] += 1;
+					break;
+	
+				case YELLOW:
+					checks[3] += 1;
+					break;
+	
+				case RED:
+					checks[4] += 1;
+					break;
 			}
 		}
 
@@ -1635,16 +1677,26 @@ public class MainGame implements ApplicationListener {
 			// Trophy unlocks
 			else if (rank == 4 && count >= 39 && shapesFit) {
 				unlockTrophyIndex = 12;
+				unlockAmount = 1;
 			} else if (rank == 4 && count == 0 && points >= 8000) {
 				unlockTrophyIndex = 14;
+				unlockAmount = 1;
 			} else if (rank == 7 && count == 37 && outerRingEmpty()) {
 				unlockTrophyIndex = 24;
+				unlockAmount = 1;
 			}
 		}
 	}
 
 	// Returns if the outer ring of the grid is empty
-	private boolean outerRingEmpty() { // TODO: FINISH THIS
-		return GetGridHex(4, 14).id == ID.NONE;
+	private boolean outerRingEmpty() { 
+		return GetGridHex(4, 16).id == ID.NONE && GetGridHex(5, 15).id == ID.NONE && GetGridHex(6, 14).id == ID.NONE
+				&& GetGridHex(7, 13).id == ID.NONE && GetGridHex(8, 12).id == ID.NONE && GetGridHex(8, 10).id == ID.NONE
+				&& GetGridHex(8, 8).id == ID.NONE && GetGridHex(8, 6).id == ID.NONE && GetGridHex(8, 4).id == ID.NONE
+				&& GetGridHex(7, 3).id == ID.NONE && GetGridHex(6, 2).id == ID.NONE && GetGridHex(5, 1).id == ID.NONE
+				&& GetGridHex(4, 0).id == ID.NONE && GetGridHex(3, 1).id == ID.NONE && GetGridHex(2, 2).id == ID.NONE
+				&& GetGridHex(1, 3).id == ID.NONE && GetGridHex(0, 4).id == ID.NONE && GetGridHex(0, 6).id == ID.NONE
+				&& GetGridHex(0, 8).id == ID.NONE && GetGridHex(0, 10).id == ID.NONE && GetGridHex(0, 12).id == ID.NONE
+				&& GetGridHex(1, 13).id == ID.NONE && GetGridHex(2, 14).id == ID.NONE && GetGridHex(3, 15).id == ID.NONE;
 	}
 }
