@@ -23,7 +23,7 @@ HexR is an android application and therefor it must be scalable to different dev
 
 ##Leaderboards:
 
-This is the final feature that I wish to implement into the game. This is close to completion but due to LibGdx being slightly outdated there are a lot of system errors that I need to work around. I actually paused development on this project because of this but plan to fix this and release it sometime in the first half of 2016.
+This is the final feature that I wish to implement into the game. This is close to completion but due to LibGdx being slightly outdated there are a lot of system errors that I need to work around. I actually paused development on this project because of this but plan to fix this and release it sometime in the first half of 2017.
 
 ##Hexagon Grid Algorithm
 
