@@ -1,11 +1,11 @@
 # HexR
-A phone app project I decided to make on my own time. I utilized Java and the LibGDX framework to create a fun and challenging puzzle game. Everything you see was created by me but I did recieve some help from friends with some of the textures. 
+An android application I decided to make on my own time. I utilized Java and the [LibGDX framework](https://libgdx.badlogicgames.com/) to create a fun and challenging puzzle game. Everything you see was created by me but I did recieve some help from friends for some of the textures. 
 
-The game was originally intended to be cross platform (hence the use of LibGdx) but due to time and developer fees I have decided to just release it for Android. If you wish to look at the game files, the class files will be found in "core" and the assets can be found in "android." The game cannot be found in the android store just yet but I plan to touch up the code and finaly release it. Everything in the game works right now except for leaderboards.
+The game was originally intended to be cross platform (hence the use of LibGdx) but due to developer fees I have decided against releasing it for IOS. As time went on a lack of time also prevented me from actually releasing the product. If you wish to look at the game files, the class files will be found in "core" and the assets can be found under "android." 
 
 ## Screenshots and Gifs of Gameplay:
 
-The following gifs are to provide a demonstration of the game. There are still some textures that need to be reworked and some of the layout is subject to change. However, most of what is seen will likely make it to the final version. A link to the store page will be provided once the game has been released.
+The following gifs are to provide a demonstration of the game that was made
 
 Gameplay 1: https://gyazo.com/0a0a2dd5d4d608fe94b302c555f5b6b0
 
