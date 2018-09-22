@@ -5,8 +5,9 @@ The game was originally intended to be cross platform (hence the use of LibGdx) 
 
 ## Screenshots and Gifs of Gameplay:
 
-The following gifs are to provide a demonstration of the game that was made
+![alt text](https://i.imgur.com/wzDVuZu.jpg)
 
+### Gifs
 Gameplay 1: https://gyazo.com/0a0a2dd5d4d608fe94b302c555f5b6b0
 
 Gameplay 2: https://gyazo.com/023899fa1c655e61ece993f383522c25
